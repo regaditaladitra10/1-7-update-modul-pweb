@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Tambah Data Kamar</title>
+  <link rel="stylesheet" type="text/css" href="StylesA.css">
+</head>
+<body>
+  <h1>Form Tambah Data Kamar</h1>
+
+  <form action="/submit-kamar" method="POST" enctype="multipart/form-data">
+    <label for="id_kamar">ID Kamar:</label>
+    <input type="text" id="id_kamar" name="id_kamar" required><br><br>
+  
+    <label for="gambar_ruangan">Gambar Ruangan:</label>
+    <input type="file" id="gambar_ruangan" name="gambar_ruangan" accept="image/*" required><br><br>
+  
+    <label for="jenis_kamar">Jenis Kamar:</label>
+    <input type="text" id="jenis_kamar" name="jenis_kamar" required><br><br>
+  
+    <label for="harga">Harga:</label>
+    <input type="number" id="harga" name="harga" required><br><br>
+  
+    <label for="fasilitas">Fasilitas:</label>
+    <textarea id="fasilitas" name="fasilitas" required></textarea><br><br>
+  
+    <input type="submit" value="Tambah Data Kamar">
+  </form>
+</body>
+</html>

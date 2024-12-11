@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Content with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="fakultas">fkom</div>
+    <input type="text" id="university" value="uniku">
+    <button id="changeContent">Change Content</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#changeContent").click(function(){
+                
+                $("#fakultas").text("fakultas ilmu komputer");
+                
+                
+                $("#university").val("universitas kuningan");
+            });
+        });
+    </script>
+</body>
+</html>

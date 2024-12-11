@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambah Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 800px;
+            margin: auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            width: 200px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background-color: blue;
+            color: white;
+        }
+        button[type="reset"] {
+            background-color: yellow;
+            color: black;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form Tambah Data Kamar</h2>
+    <form method="post" action="proses_kamar.php" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="id_kamar">ID Kamar:</label>
+            <input type="text" id="id_kamar" name="id_kamar" required>
+        </div>
+        <div class="form-group">
+            <label for="gambar_ruangan">Gambar Ruangan:</label>
+            <input type="file" id="gambar_ruangan" name="gambar_ruangan" accept="image/*" required>
+        </div>
+        <div class="form-group">
+            <label for="jenis_kamar">Jenis Kamar:</label>
+            <input type="text" id="jenis_kamar" name="jenis_kamar" required>
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga:</label>
+            <input type="number" id="harga" name="harga" required>
+        </div>
+        <div class="form-group">
+            <label for="fasilitas">Fasilitas:</label>
+            <input type="text" id="fasilitas" name="fasilitas" required>
+        </div>
+        <div class="button-group">
+            <button type="submit">SIMPAN</button>
+            <button type="reset">BATAL</button>
+        </div>
+    </form>
+
+    <h2>Form Tambah Data Fasilitas</h2>
+    <form method="post" action="proses_fasilitas.php">
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+        <div class="form-group">
+            <label for="nama_fasilitas">Nama Fasilitas:</label>
+            <input type="text" id="nama_fasilitas" name="nama_fasilitas" required>
+        </div>
+        <div class="form-group">
+            <label for="harga_weekend">Harga Weekend:</label>
+            <input type="number" id="harga_weekend" name="harga_weekend" required>
+        </div>
+        <div class="form-group">
+            <label for="harga_weekday">Harga Weekday:</label>
+            <input type="number" id="harga_weekday" name="harga_weekday" required>
+        </div>
+        <div class="form-group">
+            <label for="kuota">Kuota:</label>
+            <input type="number" id="kuota" name="kuota" required>
+        </div>
+        <div class="form-group">
+            <label for="jam_buka">Jam Buka:</label>
+            <input type="time" id="jam_buka" name="jam_buka" required>
+        </div>
+        <div class="form-group">
+            <label for="jam_tutup">Jam Tutup:</label>
+            <input type="time" id="jam_tutup" name="jam_tutup" required>
+        </div>
+        <div class="button-group">
+            <button type="submit">SIMPAN</button>
+            <button type="reset">BATAL</button>
+        </div>
+    </form>
+</body>
+</html>

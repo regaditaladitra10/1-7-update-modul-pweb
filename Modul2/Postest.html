@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambah Data Nilai Mata Kuliah</title>
+</head>
+<body>
+    <h1>Form Tambah Data Nilai Mata Kuliah</h1>
+    <form method="post" action="proses_nilai.php">
+        <table border="0">
+            <tr>
+                <td><label for="nama_matkul">Nama Mata Kuliah</label></td>
+                <td><input type="text" id="nama_matkul" name="nama_matkul" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nama_dosen">Nama Dosen</label></td>
+                <td><input type="text" id="nama_dosen" name="nama_dosen" required /></td>
+            </tr>
+            <tr>
+                <td><label for="sks">SKS</label></td>
+                <td><input type="number" id="sks" name="sks" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nama_mhs">Nama Mahasiswa</label></td>
+                <td><input type="text" id="nama_mhs" name="nama_mhs" required /></td>
+            </tr>
+            <tr>
+                <td><label for="kehadiran">Jumlah Kehadiran</label></td>
+                <td><input type="number" id="kehadiran" name="kehadiran" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nilai_tugas">Nilai Tugas</label></td>
+                <td><input type="number" id="nilai_tugas" name="nilai_tugas" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nilai_quiz">Nilai Quiz</label></td>
+                <td><input type="number" id="nilai_quiz" name="nilai_quiz" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nilai_uts">Nilai UTS</label></td>
+                <td><input type="number" id="nilai_uts" name="nilai_uts" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nilai_uas">Nilai UAS</label></td>
+                <td><input type="number" id="nilai_uas" name="nilai_uas" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nilai_akhir">Nilai Akhir</label></td>
+                <td><input type="number" id="nilai_akhir" name="nilai_akhir" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nilai_huruf">Nilai Huruf</label></td>
+                <td><input type="text" id="nilai_huruf" name="nilai_huruf" required /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" name="save" value="simpan">SIMPAN</button>
+                    <button type="reset" name="cancel" value="batal">BATAL</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

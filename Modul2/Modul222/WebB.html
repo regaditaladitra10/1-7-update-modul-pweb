@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Tambah Data Fasilitas</title>
+  <link rel="stylesheet" type="text/css" href="StyleB.css">
+</head>
+<body>
+  <h1>Form Tambah Data Fasilitas</h1>
+
+  <form action="/submit-fasilitas" method="POST">
+    <label for="id_fasilitas">ID Fasilitas:</label>
+    <input type="text" id="id_fasilitas" name="id_fasilitas" required><br><br>
+
+    <label for="nama_fasilitas">Nama Fasilitas:</label>
+    <input type="text" id="nama_fasilitas" name="nama_fasilitas" required><br><br>
+
+    <label for="harga_weekend">Harga Weekend:</label>
+    <input type="number" id="harga_weekend" name="harga_weekend" required><br><br>
+
+    <label for="harga_weekday">Harga Weekday:</label>
+    <input type="number" id="harga_weekday" name="harga_weekday" required><br><br>
+
+    <label for="kuota">Kuota:</label>
+    <input type="number" id="kuota" name="kuota" required><br><br>
+
+    <label for="jam_buka">Jam Buka:</label>
+    <input type="time" id="jam_buka" name="jam_buka" required><br><br>
+
+    <label for="jam_tutup">Jam Tutup:</label>
+    <input type="time" id="jam_tutup" name="jam_tutup" required><br><br>
+
+    <input type="submit" value="Tambah Data Fasilitas">
+  </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.nav-link {
+    font-family: Arial, sans-serif; 
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+
+.nav-link:hover {
+    color: rgb(182, 215, 243); 
+}
+
+.jumbotron {
+    background-image: url("https://th.bing.com/th/id/OIP.XChbIGdJ7yi88hFTNLUplQHaFi?rs=1&pid=ImgDetMain"); 
+    background-size: cover;
+    height: 500px;
+}
+
+@media (min-width: 992px) {
+    .nav-link {
+        font-family: Impact, sans-serif;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-right: 30px;
+    }
+}

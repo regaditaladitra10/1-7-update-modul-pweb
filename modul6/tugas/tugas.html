@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pemesanan Kamar</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+  <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <h1>Form Pemesanan Kamar</h1>
+
+  <form id="bookingForm">
+    <div>
+      <label for="idPemesan">Id Pemesan:</label>
+      <input type="number" id="idPemesan" required>
+      <span id="idPemesanError" class="error"></span>
+    </div>
+    <div>
+      <label for="namaPemesan">Nama Pemesan:</label>
+      <input type="text" id="namaPemesan" required>
+      <span id="namaError" class="error"></span>
+    </div>
+    <div>
+      <label for="jenisKelamin">Jenis Kelamin:</label>
+      <select id="jenisKelamin" required>
+        <option value="">Pilih</option>
+        <option value="laki-laki">Laki-laki</option>
+        <option value="perempuan">Perempuan</option>
+      </select>
+      <span id="jenisKelaminError" class="error"></span>
+    </div>
+    <div>
+      <label for="nomorIdentitas">Nomor Identitas:</label>
+      <input type="text" id="nomorIdentitas" required>
+      <span id="nomorIdentitasError" class="error"></span>
+    </div>
+    <div>
+      <label for="tipeKamar">Tipe Kamar:</label>
+      <select id="tipeKamar" required>
+        <option value="">--Pilih--</option>
+        <option value="standar">STANDAR</option>
+        <option value="deluxe">DELUXE</option>
+        <option value="family">FAMILY</option>
+      </select>
+    </div>
+    <div>
+      <label for="tanggalPesan">Tanggal Pesan:</label>
+      <input type="date" id="tanggalPesan" required>
+    </div>
+    <div>
+      <label for="durasi">Durasi Menginap (hari):</label>
+      <input type="text" id="durasi" required>
+      <span id="durasiError" class="error"></span>
+    </div>
+    <div>
+      <label for="breakfast">Termasuk Breakfast:</label>
+      <input type="checkbox" id="breakfast" value="ya">
+    </div>
+    <div>
+      <label for="totalBayar">Total Bayar:</label>
+      <input type="text" id="totalBayar" disabled>
+    </div>
+
+    <button type="button" id="calculateBtn">Hitung Total</button>
+    <button type="submit">Simpan</button>
+    <button type="reset">Batal</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('#calculateBtn').click(function() {
+        // Ambil nilai dari input
+        const idPemesan = $('#idPemesan').val();
+        const namaPemesan = $('#namaPemesan').val();
+        const jenisKelamin = $('#jenisKelamin').val();
+        const nomorIdentitas = $('#nomorIdentitas').val();
+        const tipeKamar = $('#tipeKamar').val();
+        const tanggalPesan = $('#tanggalPesan').val();
+        const durasi = $('#durasi').val();
+        const breakfast = $('#breakfast').prop('checked');
+
+        // Validasi
+        let isValid = true;
+
+        // Validasi id pemesan
+        if (isNaN(idPemesan) || idPemesan.trim() === '') {
+          $('#idPemesanError').text("Id Pemesan harus berupa angka");
+          isValid = false;
+        } else {
+          $('#idPemesanError').text("");
+        }
+
+        // Validasi nomor identitas
+        if (nomorIdentitas.length !== 16) {
+          $('#nomorIdentitasError').text("Nomor Identitas harus 16 digit yaaa");
+          isValid = false;
+        } else {
+          $('#nomorIdentitasError').text("");
+        }
+
+        // Validasi durasi
+        if (isNaN(durasi) || durasi <= 0) {
+          $('#durasiError').text("Durasi Menginap harus berupa angka :3");
+          isValid = false;
+        } else {
+          $('#durasiError').text("");
+        }
+
+        if (!isValid) {
+          return;
+        }
+
+        // Hitung total harga
+        let hargaPerMalam;
+        switch (tipeKamar) {
+          case 'standar':
+            hargaPerMalam = 300000;
+            break;
+          case 'deluxe':
+            hargaPerMalam = 700000;
+            break;
+          case 'family':
+            hargaPerMalam = 500000;
+            break;
+          default:
+            hargaPerMalam = 0;
+        }
+
+        let totalHarga = hargaPerMalam * durasi;
+
+        // Diskon 10% jika menginap lebih dari 3 hari
+        if (durasi > 3) {
+          totalHarga *= 0.9;
+        }
+
+        // Tambahan biaya untuk sarapan
+        if (breakfast) {
+          totalHarga += 80000;
+        }
+
+        // Tampilkan hasil dalam form
+        $('#totalBayar').val(`Rp. ${totalHarga.toLocaleString('id-ID')}`);
+
+        // Tampilkan hasil di div result
+        $('#result').html(`
+          <form>
+            <p><label>Id Pemesan:</label> <input type="text" value="${idPemesan}" disabled></p>
+            <p><label>Nama Pemesan:</label> <input type="text" value="${namaPemesan}" disabled></p>
+            <p><label>Jenis Kelamin:</label> <input type="text" value="${jenisKelamin}" disabled></p>
+            <p><label>Nomor Identitas:</label> <input type="text" value="${nomorIdentitas}" disabled></p>
+            <p><label>Tipe Kamar:</label> <input type="text" value="${tipeKamar}" disabled></p>
+            <p><label>Tanggal Pesan:</label> <input type="text" value="${tanggalPesan}" disabled></p>
+            <p><label>Durasi Menginap:</label> <input type="text" value="${durasi} hari" disabled></p>
+            <p><label>Termasuk Breakfast:</label> <input type="text" value="${breakfast ? 'Ya' : 'Tidak'}" disabled></p>
+            <p><label>Total Bayar:</label> <input type="text" value="Rp. ${totalHarga.toLocaleString('id-ID')}" disabled></p>
+          </form>
+        `);
+      });
+    });
+  </script>
+</body>
+</html>

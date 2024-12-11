@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perhitungan Gaji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .container input, .container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .container .buttons input {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>PERHITUNGAN GAJI</h2>
+        <form name="form1">
+            <label for="gol">Golongan:</label>
+            <select name="gol" id="gol">
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+            </select>
+            <label for="jumlah_anak">Jumlah Anak:</label>
+            <input type="number" name="jumlah_anak" id="jumlah_anak">
+            <div class="buttons">
+                <input type="button" value="Hitung" onclick="hitungGaji()">
+                <input type="button" value="Cancel" onclick="resetForm()">
+            </div>
+            <label for="gaji_pokok">Gaji Pokok:</label>
+            <input type="number" name="gaji_pokok" id="gaji_pokok" readonly>
+            <label for="tunjangan">Tunjangan:</label>
+            <input type="number" name="tunjangan" id="tunjangan" readonly>
+            <label for="gaji_bersih">Gaji Bersih:</label>
+            <input type="number" name="gaji_bersih" id="gaji_bersih" readonly>
+        </form>
+    </div>
+
+    <script>
+        function hitungGaji() {
+            var gol = document.getElementById("gol").value;
+            var jumlahAnak = document.getElementById("jumlah_anak").value;
+
+            var gajiPokok, persenTunjangan;
+
+            switch(gol) {
+                case "I":
+                    gajiPokok = 250000;
+                    persenTunjangan = 5;
+                    break;
+                case "II":
+                    gajiPokok = 300000;
+                    persenTunjangan = 10;
+                    break;
+                case "III":
+                    gajiPokok = 350000;
+                    persenTunjangan = 15;
+                    break;
+            }
+
+            document.getElementById("gaji_pokok").value = gajiPokok;
+
+            var tunjangan = (jumlahAnak * gajiPokok * persenTunjangan) / 100;
+            document.getElementById("tunjangan").value = tunjangan;
+
+            var gajiBersih = gajiPokok + tunjangan;
+            document.getElementById("gaji_bersih").value = gajiBersih;
+        }
+
+        function resetForm() {
+            document.form1.reset();
+            document.getElementById("gaji_pokok").value = '';
+            document.getElementById("tunjangan").value = '';
+            document.getElementById("gaji_bersih").value = '';
+        }
+    </script>
+</body>
+</html>

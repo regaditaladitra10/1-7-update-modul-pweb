@@ -1,0 +1,54 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.gambar img {
+    width: 200px; 
+    height: auto; 
+    display: block;
+    border-radius: 8px;
+}
+
+.judul {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.potongan-artikel {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: inline-block;
+    color: blue;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.extra-content {
+    display: none;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: opacity 0.5s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label + .extra-content {
+    display: block;
+    opacity: 1;
+}
